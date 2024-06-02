@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_screen"
+    tools:context=".view.NicknameActivity">
+
+    <LinearLayout
+        android:id="@+id/nickname_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/greeting"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_semibold"
+            android:text="@string/greeting"
+            android:textAlignment="center"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/nickname_description"
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/poppins_regular"
+            android:text="@string/nickname_description"
+            android:textAlignment="center"
+            android:textColor="@color/gray_600"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:orientation="horizontal"
+        android:paddingHorizontal="60dp"
+        app:layout_constraintEnd_toEndOf="@id/nickname_layout"
+        app:layout_constraintStart_toStartOf="@id/nickname_layout"
+        app:layout_constraintTop_toBottomOf="@id/nickname_layout">
+
+        <com.dicoding.mindspace.component.CustomEditText
+            android:id="@+id/nickname_input"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:layout_weight="1"
+            android:hint="@string/nickname_placeholder"
+            android:paddingHorizontal="20dp" />
+
+        <com.dicoding.mindspace.component.CustomIconButton
+            android:id="@+id/nickname_btn"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:src="@drawable/baseline_chevron_right_24"
+            app:tint="@color/white" />
+
+    </LinearLayout>
+
+    <com.dicoding.mindspace.view.canvas.MoonView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginTop="40dp"
+        android:foregroundGravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.dicoding.mindspace.view.canvas.HillsView
+        android:layout_width="match_parent"
+        android:layout_height="240dp"
+        android:foregroundGravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">MindSpace</string>
+    <string name="welcome_message">This is a safe space for you to share your story and lighten you up</string>
+    <string name="welcome_title">Welcome to <font fgcolor="#FF086075">Mindspace</font></string>
+    <string name="continue_text">Continue</string>
+    <string name="greeting">Hey there!</string>
+    <string name="nickname_description">Since we haven’t know what to call you, fill in your nickname below and you can continue your journey!</string>
+    <string name="nickname_placeholder">Choose a nickname...</string>
+    <string name="pin_title">Enter your pin</string>
+    <string name="pin_description">Everything you share here can’t be exposed to others right? so put a pin for your space, Kevin!</string>
+    <string name="greeting_nickname">Hi, Kevin</string>
+</resources>

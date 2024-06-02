@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_screen"
+    tools:context=".view.MainActivity">
+
+    <ImageView
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:src="@drawable/mindspace_logo"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintBottom_toTopOf="@id/welcome_layout"
+        app:layout_constraintStart_toStartOf="@id/welcome_layout"
+        app:layout_constraintEnd_toEndOf="@id/welcome_layout"
+        />
+
+    <LinearLayout
+        android:id="@+id/welcome_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingHorizontal="24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+        
+        <TextView
+            android:id="@+id/welcome_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_semibold"
+            android:text="@string/welcome_title"
+            android:textAlignment="center"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/welcome_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_regular"
+            android:layout_marginTop="4dp"
+            android:text="@string/welcome_message"
+            android:textAlignment="center"
+            android:textColor="@color/gray_600"
+            android:paddingHorizontal="24dp"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+
+    <com.dicoding.mindspace.component.CustomButton
+        android:id="@+id/start_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:paddingHorizontal="20dp"
+        android:paddingVertical="10dp"
+        android:text="@string/continue_text"
+        app:layout_constraintEnd_toEndOf="@id/welcome_layout"
+        app:layout_constraintStart_toStartOf="@id/welcome_layout"
+        app:layout_constraintTop_toBottomOf="@id/welcome_layout" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
