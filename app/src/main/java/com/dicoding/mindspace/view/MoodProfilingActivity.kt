@@ -1,6 +1,7 @@
 package com.dicoding.mindspace.view
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import android.view.MotionEvent
 import androidx.activity.enableEdgeToEdge
@@ -24,6 +25,12 @@ class MoodProfilingActivity : AppCompatActivity() {
     private fun setupAction() {
         val swipeArea = binding.swipeArea
         val emoji = binding.emojiView
+        val continueBtn = binding.moodContinueBtn
+
+        continueBtn.setOnClickListener {
+            val intent = Intent(this, ThankingActivity::class.java)
+            startActivity(intent)
+        }
 
         swipeArea.setOnTouchListener { _, event ->
             when (event.action) {

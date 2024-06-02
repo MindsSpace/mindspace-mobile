@@ -37,7 +37,7 @@ class NicknameActivity : AppCompatActivity() {
 
         nicknameBtn.setOnClickListener {
             val intent = Intent(this, PinActivity::class.java)
-            intent.putExtra("nickname", nicknameInput.text.toString())
+            intent.putExtra(PinActivity.NICKNAME_EXTRA, nicknameInput.text.toString())
             startActivity(intent)
         }
     }

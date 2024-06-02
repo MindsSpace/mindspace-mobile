@@ -15,7 +15,7 @@ import androidx.core.view.WindowInsetsCompat
 import com.dicoding.mindspace.R
 import com.dicoding.mindspace.databinding.ActivityPinBinding
 
-class PinActivity : AppCompatActivity(), TextWatcher, View.OnClickListener {
+class PinActivity : AppCompatActivity(), TextWatcher {
     private lateinit var binding: ActivityPinBinding
     private lateinit var numTemp: String
 
@@ -36,6 +36,12 @@ class PinActivity : AppCompatActivity(), TextWatcher, View.OnClickListener {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+        binding.pinDescription.text = resources.getString(
+            R.string.pin_description, intent.getStringExtra(
+                NICKNAME_EXTRA
+            )
+        )
     }
 
     private fun setupEditTexts() {
@@ -135,11 +141,8 @@ class PinActivity : AppCompatActivity(), TextWatcher, View.OnClickListener {
         }
     }
 
-    override fun onClick(v: View?) {
-
-    }
-
     companion object {
         const val NUM_OF_DIGITS = 4
+        const val NICKNAME_EXTRA = "nickname"
     }
 }
