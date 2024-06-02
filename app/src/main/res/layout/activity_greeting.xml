@@ -9,8 +9,8 @@
     tools:context=".view.GreetingActivity">
 
     <com.dicoding.mindspace.view.canvas.MoonView
-        android:layout_width="200dp"
-        android:layout_height="200dp"
+        android:layout_width="240dp"
+        android:layout_height="240dp"
         android:foregroundGravity="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
