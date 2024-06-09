@@ -4,7 +4,6 @@ import android.content.Context
 import android.graphics.Canvas
 import android.graphics.Typeface
 import android.graphics.drawable.Drawable
-import android.graphics.fonts.Font
 import android.util.AttributeSet
 import android.view.Gravity
 import androidx.appcompat.widget.AppCompatButton
@@ -23,8 +22,10 @@ class CustomButton @JvmOverloads constructor(
 
     init {
         textColor = ContextCompat.getColor(context, android.R.color.background_light)
-        enabledBackground = ContextCompat.getDrawable(context, R.drawable.bg_button) as Drawable
-        disabledBackground = ContextCompat.getDrawable(context, R.drawable.bg_button_disable) as Drawable
+        enabledBackground =
+            ContextCompat.getDrawable(context, R.drawable.component_button_bg) as Drawable
+        disabledBackground =
+            ContextCompat.getDrawable(context, R.drawable.component_button_bg_disable) as Drawable
         textTypeFace = ResourcesCompat.getFont(context, R.font.poppins_semibold) as Typeface
     }
 

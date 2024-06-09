@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginHorizontal="24dp"
+    tools:context=".view.chat.ChatFragment">
+
+    <LinearLayout
+        android:id="@+id/chat_input"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <com.dicoding.mindspace.component.CustomEditText
+            android:id="@+id/chat_edit_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="@string/nickname_placeholder"
+            android:inputType="textMultiLine"
+            android:maxLines="4"
+            android:paddingHorizontal="20dp" />
+
+        <com.dicoding.mindspace.component.CustomIconButton
+            android:id="@+id/send_btn"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:layout_gravity="bottom"
+            android:layout_marginStart="10dp"
+            android:contentDescription="@string/send_btn_desc"
+            android:src="@drawable/baseline_chevron_right_24"
+            app:tint="@color/white" />
+
+        <com.dicoding.mindspace.component.CustomIconButton
+            android:id="@+id/voice_input_btn"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:layout_gravity="bottom"
+            android:layout_marginStart="10dp"
+            android:background="@drawable/component_button_bg_secondary"
+            android:src="@drawable/baseline_mic_24"
+            app:tint="@color/primary"
+            app:variant="secondary" />
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/chat_recycler_view"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@id/chat_input"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:listitem="@layout/item_chat_bubble" />
+</androidx.constraintlayout.widget.ConstraintLayout>

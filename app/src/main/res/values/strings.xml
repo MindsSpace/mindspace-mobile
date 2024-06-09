@@ -13,4 +13,27 @@
     <string name="mood_instruction">Swipe up and down to adjust your emotion</string>
     <string name="thanking_quote">Thanks Kevin for sharing!</string>
     <string name="sparks">thanking sparks</string>
+    <string name="question_1_profiling_question">What are your problems that you would like to share, Kevin?</string>
+    <string name="question_1_option_1">Anxiety attack</string>
+    <string name="question_1_option_2">Lack of confidence</string>
+    <string name="question_1_option_3">Sleep disorder</string>
+    <string name="question_2_profiling">Can you tell us how would you like us to help you with, Kevin?</string>
+    <string name="question_2_option_1">Face my problem</string>
+    <string name="question_2_option_2">Re-frame thoughts</string>
+    <string name="question_2_option_3">Accompany me</string>
+    <string name="language">Language</string>
+    <string name="logout">Logout</string>
+    <string name="setting">Setting</string>
+    <string name="user_greet">Hi, <font fgcolor="#FF086075">Kevin</font></string>
+    <string name="today_challenge">Today\'s Challenges</string>
+    <string name="breathing_exercise">Breathing Exercise</string>
+    <string name="chat_input_placeholder">Reply or type help…</string>
+    <string name="close_chat">Close chat</string>
+    <string name="send_btn_desc">Click to send</string>
+    <string name="voice_input_prompt">Say something</string>
+    <string name="title_home">Home</string>
+    <string name="title_history">History</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity">Activity</string>
 </resources>

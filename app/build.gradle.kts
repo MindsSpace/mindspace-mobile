@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
+    alias(libs.plugins.kotlin.parcelize)
 }
 
 android {
@@ -9,12 +10,13 @@ android {
 
     defaultConfig {
         applicationId = "com.dicoding.mindspace"
-        minSdk = 24
+        minSdk = 26
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        buildConfigField("String", "BASE_URL", "\"https://example.com/api/\"")
     }
 
     buildTypes {
@@ -48,10 +50,22 @@ dependencies {
     implementation(libs.androidx.constraintlayout)
 
     // api with retrofit
-    implementation(libs.squareup.retrofit)
-    implementation(libs.squareup.converter.gson)
-    implementation(libs.squareup.okhttp)
+    implementation(libs.squareup.retrofit2.retrofit)
+    implementation(libs.squareup.retrofit2.converter.gson)
+    implementation(libs.squareup.okhttp3.logging.interceptor)
 
+    // navigation and fragment
+    implementation(libs.androidx.navigation.fragment.ktx)
+    implementation(libs.androidx.navigation.ui.ktx)
+
+    // datastore preferences
+    implementation(libs.androidx.datastore.preferences)
+
+    // lifecycle
+    implementation(libs.androidx.lifecycle.viewmodel.ktx)
+    implementation(libs.androidx.lifecycle.livedata.ktx)
+
+    // testing
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

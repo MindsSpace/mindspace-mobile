@@ -1,4 +1,4 @@
-package com.dicoding.mindspace.view
+package com.dicoding.mindspace.view.start
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -28,7 +28,7 @@ class MoodProfilingActivity : AppCompatActivity() {
         val continueBtn = binding.moodContinueBtn
 
         continueBtn.setOnClickListener {
-            val intent = Intent(this, ThankingActivity::class.java)
+            val intent = Intent(this, ProblemActivity::class.java)
             startActivity(intent)
         }
 
@@ -38,12 +38,14 @@ class MoodProfilingActivity : AppCompatActivity() {
                     initialY = event.y
                     true
                 }
+
                 MotionEvent.ACTION_MOVE -> {
                     val deltaY = initialY - event.y
                     emoji.updateEmotionLevel(deltaY.toInt())
                     initialY = event.y
                     true
                 }
+
                 else -> false
             }
         }

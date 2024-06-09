@@ -16,7 +16,8 @@ class CustomEditText @JvmOverloads constructor(
     private var backgroundFill: Drawable
 
     init {
-        backgroundFill = ContextCompat.getDrawable(context, R.drawable.bg_edittext) as Drawable
+        backgroundFill =
+            ContextCompat.getDrawable(context, R.drawable.component_edittext_bg) as Drawable
     }
 
     override fun onDraw(canvas: Canvas) {

@@ -23,7 +23,10 @@ class MoonView @JvmOverloads constructor(
     }
 
     init {
-        setLayerType(LAYER_TYPE_SOFTWARE, outerCirclePaint) // Enable software layer to support shadow
+        setLayerType(
+            LAYER_TYPE_SOFTWARE,
+            outerCirclePaint
+        ) // Enable software layer to support shadow
     }
 
     override fun onDraw(canvas: Canvas) {

@@ -5,21 +5,21 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg_screen"
-    tools:context=".view.MoodProfilingActivity">
+    android:background="@drawable/screen_bg"
+    tools:context=".view.start.MoodProfilingActivity">
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/mode_profiling_question"
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/mood_profiling_question"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="32dp"
         android:layout_marginTop="60dp"
         app:cardBackgroundColor="@color/green_200"
         app:cardCornerRadius="10dp"
-        app:cardElevation="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:strokeColor="@android:color/transparent">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -36,19 +36,19 @@
 
         </LinearLayout>
 
-    </androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
 
     <LinearLayout
         android:id="@+id/swipe_area"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="32dp"
-        android:paddingBottom="24dp"
         android:orientation="vertical"
-        app:layout_constraintTop_toBottomOf="@id/mode_profiling_question"
+        android:paddingBottom="24dp"
         app:layout_constraintBottom_toTopOf="@id/mood_continue_btn"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintTop_toBottomOf="@id/mood_profiling_question">
 
         <com.dicoding.mindspace.view.canvas.EmojiView
             android:id="@+id/emojiView"
@@ -71,7 +71,7 @@
             android:textAlignment="center"
             android:textColor="@color/primary"
             android:textSize="18sp"
-            app:drawableTopCompat="@drawable/up_down_icon" />
+            app:drawableTopCompat="@drawable/asset_up_down" />
 
     </LinearLayout>
 

@@ -5,8 +5,8 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg_screen"
-    tools:context=".view.GreetingActivity">
+    android:background="@drawable/screen_bg"
+    tools:context=".view.start.GreetingActivity">
 
     <com.dicoding.mindspace.view.canvas.MoonView
         android:layout_width="240dp"

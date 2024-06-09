@@ -5,8 +5,8 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg_screen"
-    tools:context=".view.PinActivity">
+    android:background="@drawable/screen_bg"
+    tools:context=".view.start.PinActivity">
 
     <LinearLayout
         android:id="@+id/opening_layout"
@@ -56,7 +56,7 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="5dp"
             android:layout_weight="1"
-            android:background="@drawable/bg_edittext"
+            android:background="@drawable/component_edittext_bg"
             android:inputType="numberPassword"
             android:padding="20dp"
             android:textAlignment="center"
@@ -71,7 +71,7 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="5dp"
             android:layout_weight="1"
-            android:background="@drawable/bg_edittext"
+            android:background="@drawable/component_edittext_bg"
             android:inputType="numberPassword"
             android:padding="20dp"
             android:textAlignment="center"
@@ -86,7 +86,7 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="5dp"
             android:layout_weight="1"
-            android:background="@drawable/bg_edittext"
+            android:background="@drawable/component_edittext_bg"
             android:inputType="numberPassword"
             android:padding="20dp"
             android:textAlignment="center"
@@ -101,7 +101,7 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="5dp"
             android:layout_weight="1"
-            android:background="@drawable/bg_edittext"
+            android:background="@drawable/component_edittext_bg"
             android:inputType="numberPassword"
             android:padding="20dp"
             android:textAlignment="center"
