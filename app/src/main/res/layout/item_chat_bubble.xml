@@ -1,0 +1,40 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/chat_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="24dp"
+    android:layout_marginTop="24dp"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:id="@+id/chat_bubble"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/chat_bubble_bg_bot"
+        android:maxWidth="320dp"
+        android:padding="16dp"
+        android:orientation="horizontal">
+
+        <com.google.android.material.progressindicator.CircularProgressIndicator
+            android:id="@+id/loading_indicator"
+            style="@style/Widget.Material3.CircularProgressIndicator.ExtraSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:indeterminate="true"
+            app:indicatorColor="@color/primary_disabled"
+            app:trackColor="@color/green_200" />
+
+        <TextView
+            android:id="@+id/tv_chat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxWidth="200dp"
+            android:fontFamily="@font/poppins_regular"
+            android:textSize="16sp"
+            android:textColor="@color/gray_800"
+            tools:text="This is a message" />
+    </LinearLayout>
+</LinearLayout>

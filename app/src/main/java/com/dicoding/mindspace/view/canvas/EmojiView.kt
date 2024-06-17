@@ -4,14 +4,18 @@ import android.content.Context
 import android.graphics.Canvas
 import android.graphics.Paint
 import android.graphics.Path
+import android.graphics.RadialGradient
+import android.graphics.Shader
 import android.util.AttributeSet
 import android.view.View
 import androidx.core.content.ContextCompat
+import androidx.lifecycle.MutableLiveData
 import com.dicoding.mindspace.R
 
 class EmojiView @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
 ) : View(context, attrs, defStyleAttr) {
+
     private val facePaint = Paint().apply {
         color = ContextCompat.getColor(context, R.color.green_400)
         style = Paint.Style.FILL
@@ -30,19 +34,49 @@ class EmojiView @JvmOverloads constructor(
         strokeCap = Paint.Cap.ROUND
     }
 
+    private val backgroundShapePaint = Paint().apply {
+        style = Paint.Style.FILL
+    }
+
     private var emotionLevel = 0 // -10 (saddest) to 10 (happiest)
     private val maxEmotionLevel = 10
     private val minEmotionLevel = -10
 
+    val emotionLevelLiveData = MutableLiveData<String>()
+
     init {
         setLayerType(LAYER_TYPE_SOFTWARE, null)
+        updateEmotionDescription()
     }
 
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
+        drawBackgroundShape(canvas)
         drawFace(canvas)
         drawEyes(canvas)
         drawMouth(canvas)
+    }
+
+    private fun drawBackgroundShape(canvas: Canvas) {
+        val sensitivityFactor = 10
+
+        val left = width * 0.2f - emotionLevel * sensitivityFactor
+        val top = height * 0.3f - emotionLevel * sensitivityFactor
+        val right = width * 0.8f + emotionLevel * sensitivityFactor
+        val bottom = height * 0.7f + emotionLevel * sensitivityFactor
+        val radius = (right - left) / 2f
+
+        val gradient = RadialGradient(
+            (left + right) / 2f,
+            (top + bottom) / 2f,
+            radius,
+            ContextCompat.getColor(context, R.color.green_300),
+            ContextCompat.getColor(context, R.color.green_200),
+            Shader.TileMode.CLAMP
+        )
+        backgroundShapePaint.shader = gradient
+
+        canvas.drawRoundRect(left, top, right, bottom, radius, radius, backgroundShapePaint)
     }
 
     private fun drawFace(canvas: Canvas) {
@@ -90,10 +124,19 @@ class EmojiView @JvmOverloads constructor(
     fun updateEmotionLevel(deltaY: Int) {
         emotionLevel += deltaY / 10 // Adjust the divisor for sensitivity
         emotionLevel = emotionLevel.coerceIn(minEmotionLevel, maxEmotionLevel)
+        updateEmotionDescription()
         invalidate()
     }
 
-    fun getEmotionLevel(): Int {
-        return emotionLevel
+    private fun updateEmotionDescription() {
+        val description = when (emotionLevel) {
+            in -10..-6 -> "Terrible"
+            in -5..-1 -> "Not Great"
+            0 -> "Not bad"
+            in 1..5 -> "Pretty good"
+            in 6..10 -> "Perfect"
+            else -> "Don't know yet"
+        }
+        emotionLevelLiveData.postValue(description)
     }
 }

@@ -1,0 +1,85 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="200dp"
+    tools:context=".view.challenge.meditation.MeditationFragment">
+
+<!--    <TextView-->
+<!--        android:id="@+id/titleText"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_alignParentTop="true"-->
+<!--        android:layout_centerHorizontal="true"-->
+<!--        android:layout_marginTop="40dp"-->
+<!--        android:fontFamily="@font/poppins_semibold"-->
+<!--        android:text="@string/breathing_challenge_title"-->
+<!--        android:textColor="@color/green_800"-->
+<!--        android:textSize="24sp" />-->
+
+    <FrameLayout
+        android:id="@+id/animationLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true">
+
+        <View
+            android:id="@+id/outerCircleView1"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_gravity="center"
+            android:alpha="0.4"
+            android:background="@drawable/circle_shape_200" />
+
+        <View
+            android:id="@+id/outerCircleView2"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_gravity="center"
+            android:alpha="0.6"
+            android:background="@drawable/circle_shape_300" />
+
+        <View
+            android:id="@+id/outerCircleView3"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_gravity="center"
+            android:alpha="0.6"
+            android:background="@drawable/circle_shape_400" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/startButton"
+            style="@style/PoppinsButtonStyle"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_gravity="center"
+            android:alpha="1"
+            android:background="@drawable/component_button_bg_circle"
+            android:fontFamily="@font/poppins_medium"
+            android:text="@string/start_text"
+            android:textColor="@color/green_200"
+            android:textSize="20sp" />
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/instructionText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/finish_btn"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="60dp"
+        android:fontFamily="@font/poppins_medium"
+        android:text="@string/meditation_start_prompt"
+        android:textColor="@color/green_700"
+        android:textSize="18sp" />
+
+    <com.dicoding.mindspace.component.CustomButton
+        android:id="@+id/finish_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/finish_text"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"/>
+
+</RelativeLayout>

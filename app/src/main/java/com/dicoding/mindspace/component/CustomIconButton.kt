@@ -18,8 +18,36 @@ class CustomIconButton @JvmOverloads constructor(
     private var disabledBackground: Drawable
 
     init {
-        enabledBackground = ContextCompat.getDrawable(context, R.drawable.bg_button) as Drawable
-        disabledBackground = ContextCompat.getDrawable(context, R.drawable.bg_button_disable) as Drawable
+        val typedArray = context.obtainStyledAttributes(attrs, R.styleable.CustomIconButton)
+        val variant = typedArray.getString(R.styleable.CustomIconButton_variant)
+
+        when (variant) {
+            "tertiary" -> {
+                enabledBackground =
+                    ContextCompat.getDrawable(context, R.drawable.component_button_bg_white)!!
+                disabledBackground =
+                    ContextCompat.getDrawable(context, R.drawable.component_button_bg_white)!!
+            }
+
+            "secondary" -> {
+                enabledBackground =
+                    ContextCompat.getDrawable(context, R.drawable.component_button_bg_secondary)!!
+                disabledBackground =
+                    ContextCompat.getDrawable(
+                        context,
+                        R.drawable.component_button_bg_secondary_disable
+                    )!!
+            }
+
+            else -> {
+                enabledBackground =
+                    ContextCompat.getDrawable(context, R.drawable.component_button_bg)!!
+                disabledBackground =
+                    ContextCompat.getDrawable(context, R.drawable.component_button_bg_disable)!!
+            }
+        }
+
+        typedArray.recycle()
     }
 
     override fun onDraw(canvas: Canvas) {
