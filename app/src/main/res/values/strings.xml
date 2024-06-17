@@ -8,8 +8,8 @@
     <string name="nickname_placeholder">Choose a nickname…</string>
     <string name="pin_title">Enter your pin</string>
     <string name="pin_description">Everything you share here can’t be exposed to others right? so put a pin for your space, %1$s!</string>
-    <string name="greeting_nickname">Hi, Kevin</string>
-    <string name="mood_profiling_question">How have you been feeling lately, Kevin?</string>
+    <string name="greeting_nickname">Hi, %1$s</string>
+    <string name="mood_profiling_question">How have you been feeling lately, %1$s?</string>
     <string name="mood_instruction">Swipe up and down to adjust your emotion</string>
     <string name="thanking_quote">Thanks Kevin for sharing!</string>
     <string name="sparks">thanking sparks</string>
@@ -24,16 +24,39 @@
     <string name="language">Language</string>
     <string name="logout">Logout</string>
     <string name="setting">Setting</string>
-    <string name="user_greet">Hi, <font fgcolor="#FF086075">Kevin</font></string>
-    <string name="today_challenge">Today\'s Challenges</string>
-    <string name="breathing_exercise">Breathing Exercise</string>
+    <string name="user_greet">Hi, <font fgcolor="#FF086075">%1$s</font></string>
+    <string name="today_challenge">Daily\'s Challenges</string>
+    <string name="breathing_exercise_title">Breathing Exercise</string>
+    <string name="breathing_exercise_desc">Help you relax and meditate</string>
     <string name="chat_input_placeholder">Reply or type help…</string>
     <string name="close_chat">Close chat</string>
     <string name="send_btn_desc">Click to send</string>
     <string name="voice_input_prompt">Say something</string>
     <string name="title_home">Home</string>
-    <string name="title_history">History</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_history">Chat</string>
     <string name="title_activity">Activity</string>
+    <string name="title_journal">Journal</string>
+    <string name="fab_new_chat_content_desc">Create a new chat</string>
+    <string name="title_weekly_streak">Weekly Streak</string>
+    <string name="new_chat_placeholder">Tell us about your day</string>
+    <string name="daily_journaling_title">Daily Journaling</string>
+    <string name="daily_journaling_desc">Write down your today story</string>
+    <string name="retry">Again</string>
+    <string name="inhale_instruction">Take a deep breath…</string>
+    <string name="exhale_instruction">Let it out…</string>
+    <string name="meditate_finish_text">Well done!</string>
+    <string name="start_text">Start</string>
+    <string name="meditation_start_prompt">Start meditation of mind</string>
+    <string name="retry_text">More</string>
+    <string name="finish_text">Finish</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="new_journal_title">Sunday, 20 Jun</string>
+    <string name="journal_title">My Journal</string>
+    <string name="profile_title">Profile</string>
+    <string name="journal">Journal</string>
+    <string name="chat_history_title">My Chats</string>
+    <string name="new_journal_placeholder">Today i feel grateful for…</string>
+    <string name="breathing_challenge_title">Breathing Challenge</string>
+    <string name="point_150">+150 pt</string>
+    <string name="point_300">+300 pt</string>
 </resources>

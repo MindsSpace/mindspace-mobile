@@ -8,6 +8,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.dicoding.mindspace.R
 import com.dicoding.mindspace.component.CustomCheckBox
+import com.dicoding.mindspace.data.remote.schema.ProfilingRequest
 import com.dicoding.mindspace.databinding.ActivityHelpBinding
 
 class HelpActivity : AppCompatActivity() {
@@ -44,7 +45,13 @@ class HelpActivity : AppCompatActivity() {
     }
 
     private fun handleHelpSelections() {
+        val mood = intent.getStringExtra(ProblemActivity.EXTRA_MOOD)
+        val problems = intent.getStringArrayListExtra(EXTRA_PROBLEMS)
+        val helps = ArrayList(selectedOptions.map { it })
+
+        val profilingData = ProfilingRequest(mood, problems, helps)
         val intent = Intent(this, ThankingActivity::class.java)
+        intent.putExtra(ThankingActivity.EXTRA_PROFILING, profilingData)
         startActivity(intent)
     }
 
@@ -57,5 +64,9 @@ class HelpActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+    }
+
+    companion object {
+        const val EXTRA_PROBLEMS = "problems"
     }
 }

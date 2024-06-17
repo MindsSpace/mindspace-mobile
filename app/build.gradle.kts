@@ -16,7 +16,7 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        buildConfigField("String", "BASE_URL", "\"https://example.com/api/\"")
+        buildConfigField("String", "BASE_URL", "\"https://p2pggdxl-8080.asse.devtunnels.ms/api/v1/\"")
     }
 
     buildTypes {
@@ -49,6 +49,9 @@ dependencies {
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
 
+    // splash screen
+    implementation(libs.androidx.core.splashscreen)
+
     // api with retrofit
     implementation(libs.squareup.retrofit2.retrofit)
     implementation(libs.squareup.retrofit2.converter.gson)
@@ -64,6 +67,15 @@ dependencies {
     // lifecycle
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
     implementation(libs.androidx.lifecycle.livedata.ktx)
+
+    // paging
+    implementation(libs.androidx.paging.runtime.ktx)
+
+    // glide
+    implementation(libs.glide)
+
+    // circle image view
+    implementation(libs.circleimageview)
 
     // testing
     testImplementation(libs.junit)

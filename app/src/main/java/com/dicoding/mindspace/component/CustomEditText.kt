@@ -17,7 +17,7 @@ class CustomEditText @JvmOverloads constructor(
 
     init {
         backgroundFill =
-            ContextCompat.getDrawable(context, R.drawable.component_edittext_bg) as Drawable
+            ContextCompat.getDrawable(context, android.R.color.transparent) as Drawable
     }
 
     override fun onDraw(canvas: Canvas) {

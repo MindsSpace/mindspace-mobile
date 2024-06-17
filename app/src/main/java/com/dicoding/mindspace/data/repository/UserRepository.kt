@@ -3,10 +3,9 @@ package com.dicoding.mindspace.data.repository
 import com.dicoding.mindspace.data.pref.UserModel
 import com.dicoding.mindspace.data.pref.UserPreference
 import com.dicoding.mindspace.data.remote.api.ApiService
-import com.dicoding.mindspace.data.remote.schema.ApiResponse
-import com.dicoding.mindspace.data.remote.schema.RegisterData
+import com.dicoding.mindspace.data.remote.api.GetMeResponse
+import com.dicoding.mindspace.data.remote.api.RegisterResponse
 import com.dicoding.mindspace.data.remote.schema.RegisterRequest
-import com.dicoding.mindspace.data.remote.schema.RegisterResponse
 import kotlinx.coroutines.flow.Flow
 
 class UserRepository private constructor(

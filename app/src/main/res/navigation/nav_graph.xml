@@ -14,17 +14,71 @@
         <action
             android:id="@+id/action_navigation_home_to_navigation_chat"
             app:destination="@id/navigation_chat" />
+        <action
+            android:id="@+id/action_navigation_home_to_navigation_meditation"
+            app:destination="@id/navigation_meditation" />
+        <action
+            android:id="@+id/action_navigation_home_to_navigation_new_journal"
+            app:destination="@id/navigation_new_journal" />
     </fragment>
 
     <fragment
         android:id="@+id/navigation_chat"
         android:name="com.dicoding.mindspace.view.chat.ChatFragment"
         android:label="@string/close_chat"
-        tools:layout="@layout/fragment_chat" />
+        tools:layout="@layout/fragment_chat">
+        <argument
+            android:name="room_id"
+            app:argType="string" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_history"
         android:name="com.dicoding.mindspace.view.history.HistoryFragment"
-        android:label="@string/title_activity"
-        tools:layout="@layout/fragment_history"/>
+        android:label="@string/chat_history_title"
+        tools:layout="@layout/fragment_history" />
+
+    <fragment
+        android:id="@+id/navigation_meditation"
+        android:name="com.dicoding.mindspace.view.challenge.meditation.MeditationFragment"
+        android:label="@string/breathing_challenge_title"
+        tools:layout="@layout/fragment_meditation" />
+
+    <fragment
+        android:id="@+id/navigation_new_journal"
+        android:name="com.dicoding.mindspace.view.challenge.journal.NewJournalFragment"
+        android:label="@string/new_journal_title"
+        tools:layout="@layout/fragment_new_journal" />
+
+    <fragment
+        android:id="@+id/navigation_journal"
+        android:name="com.dicoding.mindspace.view.challenge.journal.JournalFragment"
+        android:label="@string/journal_title"
+        tools:layout="@layout/fragment_journal">
+
+        <action
+            android:id="@+id/action_navigation_journal_to_navigation_new_journal"
+            app:destination="@id/navigation_new_journal" />
+
+        <action
+            android:id="@+id/action_navigation_journal_to_navigation_detail_journal"
+            app:destination="@id/navigation_detail_journal" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_detail_journal"
+        android:name="com.dicoding.mindspace.view.challenge.journal.DetailJournalFragment"
+        android:label="Detail Journal"
+        tools:layout="@layout/fragment_detail_journal"/>
+
+    <fragment
+        android:id="@+id/navigation_profile"
+        android:name="com.dicoding.mindspace.view.profile.ProfileFragment"
+        android:label="Profile"
+        tools:layout="@layout/fragment_profile"/>
+
+    <action
+        android:id="@+id/action_global_navigation_chat"
+        app:destination="@id/navigation_chat" />
+
 </navigation>

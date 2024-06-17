@@ -22,13 +22,21 @@ class CustomIconButton @JvmOverloads constructor(
         val variant = typedArray.getString(R.styleable.CustomIconButton_variant)
 
         when (variant) {
+            "tertiary" -> {
+                enabledBackground =
+                    ContextCompat.getDrawable(context, R.drawable.component_button_bg_white)!!
+                disabledBackground =
+                    ContextCompat.getDrawable(context, R.drawable.component_button_bg_white)!!
+            }
+
             "secondary" -> {
                 enabledBackground =
                     ContextCompat.getDrawable(context, R.drawable.component_button_bg_secondary)!!
-                disabledBackground = ContextCompat.getDrawable(
-                    context,
-                    R.drawable.component_button_bg_secondary_disable
-                )!!
+                disabledBackground =
+                    ContextCompat.getDrawable(
+                        context,
+                        R.drawable.component_button_bg_secondary_disable
+                    )!!
             }
 
             else -> {

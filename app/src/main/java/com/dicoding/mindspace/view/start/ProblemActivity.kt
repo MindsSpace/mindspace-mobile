@@ -44,8 +44,10 @@ class ProblemActivity : AppCompatActivity() {
     }
 
     private fun handleProblemSelections() {
-        val intent = Intent(this, HelpActivity::class.java)
-        startActivity(intent)
+        val moveHelpIntent = Intent(this, HelpActivity::class.java)
+        moveHelpIntent.putStringArrayListExtra(HelpActivity.EXTRA_PROBLEMS, ArrayList(selectedOptions.map { it }))
+        moveHelpIntent.putExtra(EXTRA_MOOD, intent.getStringExtra(EXTRA_MOOD))
+        startActivity(moveHelpIntent)
     }
 
     private fun setupView() {
@@ -57,5 +59,9 @@ class ProblemActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+    }
+
+    companion object {
+        const val EXTRA_MOOD = "mood"
     }
 }

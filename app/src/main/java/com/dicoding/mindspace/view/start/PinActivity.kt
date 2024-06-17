@@ -1,23 +1,35 @@
 package com.dicoding.mindspace.view.start
 
+import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.KeyEvent
+import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.lifecycle.MutableLiveData
 import com.dicoding.mindspace.R
+import com.dicoding.mindspace.data.remote.schema.RegisterRequest
 import com.dicoding.mindspace.databinding.ActivityPinBinding
+import com.dicoding.mindspace.factory.ViewModelWithoutTokenFactory
+import com.google.android.material.snackbar.Snackbar
 
 class PinActivity : AppCompatActivity(), TextWatcher {
     private lateinit var binding: ActivityPinBinding
     private lateinit var numTemp: String
+    private lateinit var pin: String
+    private lateinit var greetingActivityResult: ActivityResultLauncher<Intent>
 
     private val editTextArray: ArrayList<EditText> = ArrayList(NUM_OF_DIGITS)
 
@@ -25,6 +37,18 @@ class PinActivity : AppCompatActivity(), TextWatcher {
         super.onCreate(savedInstanceState)
         setupView()
         setupEditTexts()
+        setupAction()
+    }
+
+    private fun setupAction() {
+        binding.snackBtn.setOnClickListener {
+            val nickname = intent.getStringExtra(NICKNAME_EXTRA).toString()
+
+            val intent = Intent(this, GreetingActivity::class.java)
+            intent.putExtra(GreetingActivity.EXTRA_NICKNAME, nickname)
+            intent.putExtra(GreetingActivity.EXTRA_PIN, pin)
+            startActivity(intent)
+        }
     }
 
     private fun setupView() {
@@ -42,6 +66,7 @@ class PinActivity : AppCompatActivity(), TextWatcher {
                 NICKNAME_EXTRA
             )
         )
+        binding.snackBtn.isEnabled = false
     }
 
     private fun setupEditTexts() {
@@ -100,10 +125,12 @@ class PinActivity : AppCompatActivity(), TextWatcher {
         for (i in editTextArray.indices) {
             if (s === editTextArray[i].editableText) {
                 if (s.isBlank()) {
+                    binding.snackBtn.isEnabled = false
                     return
                 }
                 if (s.length >= 2) {
                     val newTemp = s.toString().substring(s.length - 1)
+                    binding.snackBtn.isEnabled = false
                     if (newTemp != numTemp) {
                         editTextArray[i].setText(newTemp)
                     } else {
@@ -112,9 +139,11 @@ class PinActivity : AppCompatActivity(), TextWatcher {
                 } else if (i != editTextArray.size - 1) { // 1 char
                     editTextArray[i + 1].requestFocus()
                     editTextArray[i + 1].setSelection(editTextArray[i + 1].length())
+                    binding.snackBtn.isEnabled = false
                     return
                 } else {
                     // Test code validity when the last character is inserted
+                    binding.snackBtn.isEnabled = true
                     verifyCode(testCodeValidity())
                 }
             }
@@ -135,11 +164,13 @@ class PinActivity : AppCompatActivity(), TextWatcher {
     }
 
     private fun verifyCode(verificationCode: String) {
-        if (verificationCode.isNotEmpty()) {
+        if (verificationCode.isNotEmpty() && verificationCode.length == 4) {
             // Check code
-            enableCodeEditTexts(false)
-            val intent = Intent(this, GreetingActivity::class.java)
-            startActivity(intent)
+            // enableCodeEditTexts(false)
+            pin = verificationCode
+            val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            imm.hideSoftInputFromWindow(binding.main.windowToken, 0)
+            binding.snackBtn.requestFocus()
         }
     }
 

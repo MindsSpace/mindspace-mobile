@@ -5,16 +5,18 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/screen_bg_reverse"
+    android:background="@color/green_500"
     tools:context=".view.MainActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="80dp"
+        android:gravity="center"
         android:background="@android:color/transparent"
-        app:elevation="0dp"
+        android:paddingHorizontal="8dp"
+        app:liftOnScrollColor="@android:color/transparent"
         android:paddingTop="8dp"
-        android:paddingHorizontal="8dp">
+        app:elevation="0dp">
 
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/top_app_bar"
@@ -22,9 +24,36 @@
             android:layout_height="?android:attr/actionBarSize"
             android:layout_gravity="center"
             android:background="@android:color/transparent"
-            app:menu="@menu/option_menu"
+            app:navigationIconTint="@color/gray_800"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            app:title="@string/user_greet"
+            android:foregroundTint="@color/white"
             app:titleTextAppearance="@style/CustomToolbarTitleTextAppearance"
-            app:title="@string/user_greet" />
+            app:titleTextColor="@color/white">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:id="@+id/custom_action_add_journal"
+                    android:layout_width="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:visibility="gone"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/baseline_add_circle_24" />
+
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:id="@+id/custom_action_delete_journal"
+                    android:layout_width="wrap_content"
+                    android:visibility="gone"
+                    android:background="@android:color/transparent"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/baseline_delete_24" />
+            </LinearLayout>
+        </com.google.android.material.appbar.MaterialToolbar>
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.fragment.app.FragmentContainerView
@@ -32,16 +61,47 @@
         android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@drawable/bg_fragment"
+        android:paddingBottom="80dp"
         app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
         app:navGraph="@navigation/nav_graph" />
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottom_nav"
+    <com.google.android.material.bottomappbar.BottomAppBar
+        android:id="@+id/bottom_app_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        android:background="@color/green_100"
-        app:itemIconTint="@color/primary"
-        app:itemTextColor="@color/primary"
-        app:menu="@menu/bottom_nav_menu" />
+        android:backgroundTint="@color/white"
+        app:contentInsetEnd="0dp"
+        app:contentInsetStart="0dp"
+        app:contentInsetStartWithNavigation="0dp"
+        app:fabAlignmentMode="center"
+        app:fabAnchorMode="cradle"
+        app:fabCradleMargin="16dp"
+        app:fabCradleRoundedCornerRadius="32dp"
+        app:fabCradleVerticalOffset="0dp">
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottom_nav"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            app:labelVisibilityMode="labeled"
+            app:itemActiveIndicatorStyle="@style/App.Custom.Indicator"
+            app:itemIconTint="@color/primary_disabled"
+            app:itemTextColor="@color/primary_disabled"
+            app:menu="@menu/bottom_nav_menu" />
+    </com.google.android.material.bottomappbar.BottomAppBar>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/chat_fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/primary_disabled"
+        android:contentDescription="@string/fab_new_chat_content_desc"
+        android:src="@drawable/chat_bubble_light"
+        android:tint="@color/green_100"
+        app:layout_anchor="@id/bottom_app_bar"
+        app:layout_anchorGravity="center"
+        app:shapeAppearance="@style/Widget.App.FloatingActionButton" />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

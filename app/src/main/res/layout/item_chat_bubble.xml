@@ -1,33 +1,40 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/chat_layout"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="24dp"
+    android:layout_marginTop="24dp"
+    android:orientation="horizontal">
 
-    <ImageView
-        android:id="@+id/iv_chat_profile"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:padding="4dp"
-        android:src="@drawable/baseline_account_circle_24"
-        app:layout_constraintStart_toStartOf="parent"
-        android:background="@drawable/chat_profile_bg"
-        app:layout_constraintTop_toTopOf="parent" />
-    
-    <TextView
-        android:id="@+id/tv_chat"
+    <LinearLayout
+        android:id="@+id/chat_bubble"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="4dp"
-        android:background="@drawable/chat_bubble_bg"
+        android:background="@drawable/chat_bubble_bg_bot"
         android:maxWidth="320dp"
         android:padding="16dp"
-        android:fontFamily="@font/poppins_regular"
-        android:textColor="@color/gray_800"
-        app:layout_constraintStart_toEndOf="@+id/iv_chat_profile"
-        app:layout_constraintTop_toTopOf="@+id/iv_chat_profile"
-        tools:text="This is a message"/>
+        android:orientation="horizontal">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <com.google.android.material.progressindicator.CircularProgressIndicator
+            android:id="@+id/loading_indicator"
+            style="@style/Widget.Material3.CircularProgressIndicator.ExtraSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:indeterminate="true"
+            app:indicatorColor="@color/primary_disabled"
+            app:trackColor="@color/green_200" />
+
+        <TextView
+            android:id="@+id/tv_chat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxWidth="200dp"
+            android:fontFamily="@font/poppins_regular"
+            android:textSize="16sp"
+            android:textColor="@color/gray_800"
+            tools:text="This is a message" />
+    </LinearLayout>
+</LinearLayout>

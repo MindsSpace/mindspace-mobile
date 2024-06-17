@@ -9,6 +9,7 @@ import android.graphics.Shader
 import android.util.AttributeSet
 import android.view.View
 import androidx.core.content.ContextCompat
+import androidx.lifecycle.MutableLiveData
 import com.dicoding.mindspace.R
 
 class EmojiView @JvmOverloads constructor(
@@ -41,8 +42,11 @@ class EmojiView @JvmOverloads constructor(
     private val maxEmotionLevel = 10
     private val minEmotionLevel = -10
 
+    val emotionLevelLiveData = MutableLiveData<String>()
+
     init {
         setLayerType(LAYER_TYPE_SOFTWARE, null)
+        updateEmotionDescription()
     }
 
     override fun onDraw(canvas: Canvas) {
@@ -120,10 +124,19 @@ class EmojiView @JvmOverloads constructor(
     fun updateEmotionLevel(deltaY: Int) {
         emotionLevel += deltaY / 10 // Adjust the divisor for sensitivity
         emotionLevel = emotionLevel.coerceIn(minEmotionLevel, maxEmotionLevel)
+        updateEmotionDescription()
         invalidate()
     }
 
-    fun getEmotionLevel(): Int {
-        return emotionLevel
+    private fun updateEmotionDescription() {
+        val description = when (emotionLevel) {
+            in -10..-6 -> "Terrible"
+            in -5..-1 -> "Not Great"
+            0 -> "Not bad"
+            in 1..5 -> "Pretty good"
+            in 6..10 -> "Perfect"
+            else -> "Don't know yet"
+        }
+        emotionLevelLiveData.postValue(description)
     }
 }

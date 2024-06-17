@@ -10,12 +10,52 @@
 
     <style name="Theme.MindSpace" parent="Base.Theme.MindSpace" />
 
-    <style name="CustomToolbarTitleTextAppearance" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
-        <item name="fontFamily">@font/poppins_medium</item>
-        <item name="android:textSize">20sp</item>
+    <!--  Splash Screen  -->
+    <style name="Theme.App.SplashScreen" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/green_100</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/splash_icon</item>
+        <item name="windowSplashScreenAnimationDuration">10000</item>
+        <item name="postSplashScreenTheme">@style/Base.Theme.MindSpace</item>
     </style>
 
-    <style name="PopupMenu" parent="@android:style/Widget.PopupMenu">
+    <!--  Toolbar Text  -->
+    <style name="CustomToolbarTitleTextAppearance" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:textSize">20sp</item>
+        <item name="fontFamily">@font/poppins_medium</item>
+    </style>
+
+    <!--  Popup Menu  -->
+    <style name="CustomPopupMenuStyle" parent="Widget.AppCompat.PopupMenu">
+        <item name="android:textSize">16sp</item>
+        <item name="fontFamily">@font/poppins_medium</item>
         <item name="android:popupBackground">@drawable/component_popup_menu_bg</item>
+    </style>
+
+
+    <!--  Toolbar Active Indicator  -->
+    <style name="App.Custom.Indicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
+        <item name="android:color">@color/green_200</item>
+    </style>
+
+    <!--  Floating Action Button  -->
+    <style name="ShapeAppearance.App.SmallComponent" parent="ShapeAppearance.Material3.SmallComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">4dp</item>
+    </style>
+
+    <style name="ThemeOverlay.App.FloatingActionButton" parent="">
+        <item name="shapeAppearanceSmallComponent">@style/ShapeAppearance.App.SmallComponent</item>
+    </style>
+
+    <style name="Widget.App.FloatingActionButton" parent="Widget.Material3.FloatingActionButton.Surface">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.App.FloatingActionButton</item>
+        <item name="android:tint">@color/green_100</item>
+        <item name="colorOnSecondary">@color/green_100</item>
+        <item name="iconTint">@color/green_100</item>
+    </style>
+
+    <!-- Font for button -->
+    <style name="PoppinsButtonStyle" parent="Widget.AppCompat.Button">
+        <item name="android:fontFamily">@font/poppins_semibold</item>
     </style>
 </resources>

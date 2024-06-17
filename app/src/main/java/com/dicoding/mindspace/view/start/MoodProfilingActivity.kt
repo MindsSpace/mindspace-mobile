@@ -8,17 +8,33 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.lifecycle.lifecycleScope
 import com.dicoding.mindspace.R
+import com.dicoding.mindspace.data.pref.UserPreference
+import com.dicoding.mindspace.data.pref.dataStore
 import com.dicoding.mindspace.databinding.ActivityMoodProfilingBinding
+import kotlinx.coroutines.launch
 
 class MoodProfilingActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMoodProfilingBinding
+    private lateinit var userPreference: UserPreference
     private var initialY = 0f
+    private var mood: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setupView()
+        userPreference = UserPreference.getInstance(this.dataStore)
+        setUsername()
         setupAction()
+    }
+
+    private fun setUsername() {
+        lifecycleScope.launch {
+            userPreference.getSession().collect { user ->
+                binding.tvMoodQuestion.text = resources.getString(R.string.mood_profiling_question, user.username)
+            }
+        }
     }
 
     @SuppressLint("ClickableViewAccessibility")
@@ -29,6 +45,7 @@ class MoodProfilingActivity : AppCompatActivity() {
 
         continueBtn.setOnClickListener {
             val intent = Intent(this, ProblemActivity::class.java)
+            intent.putExtra(ProblemActivity.EXTRA_MOOD, mood)
             startActivity(intent)
         }
 
@@ -50,7 +67,10 @@ class MoodProfilingActivity : AppCompatActivity() {
             }
         }
 
-        val emotionLevel = emoji.getEmotionLevel()
+        emoji.emotionLevelLiveData.observe(this) { emotionLevel ->
+            binding.moodContinueBtn.text = emotionLevel
+            mood = emotionLevel
+        }
     }
 
     private fun setupView() {

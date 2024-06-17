@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.VIBRATE" />
 
     <application
         android:allowBackup="true"
@@ -14,6 +15,19 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MindSpace"
         tools:targetApi="31">
+        <activity
+            android:name=".view.journal.JournalActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.loading.LoadingActivity"
+            android:exported="true"
+            android:theme="@style/Theme.App.SplashScreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".view.start.HelpActivity"
             android:exported="false" />
@@ -37,16 +51,10 @@
             android:exported="false" />
         <activity
             android:name=".view.MainActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:exported="false" />
         <activity
             android:name=".view.start.StartActivity"
-            android:exported="false"/>
+            android:exported="false" />
     </application>
 
 </manifest>

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingHorizontal="24dp"
+    tools:context=".view.challenge.journal.NewJournalFragment">
+
+    <ScrollView
+        android:id="@+id/scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/create_button_layout">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <FrameLayout
+                android:id="@+id/journal_image_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="16dp"
+                android:visibility="gone">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="8dp"
+                    app:strokeColor="@android:color/transparent">
+
+                    <ImageView
+                        android:id="@+id/journal_image"
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp"
+                        android:scaleType="centerCrop"
+                        tools:src="@tools:sample/avatars" />
+                </com.google.android.material.card.MaterialCardView>
+
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:id="@+id/clear_image_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end|top"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:padding="2dp"
+                    android:background="@drawable/component_button_bg_circle_secondary"
+                    android:src="@drawable/baseline_close_24"
+                    android:tint="@color/white" />
+            </FrameLayout>
+
+            <EditText
+                android:id="@+id/journal_text"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/transparent"
+                android:fontFamily="@font/poppins_regular"
+                android:gravity="top|start"
+                android:hint="@string/new_journal_placeholder"
+                android:paddingStart="2dp"
+                android:paddingEnd="2dp"
+                android:imeOptions="actionDone"
+                android:inputType="textMultiLine"
+                android:minHeight="300dp"
+                android:overScrollMode="always"
+                android:padding="16dp" />
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/create_button_layout"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_alignParentBottom="true">
+
+        <com.dicoding.mindspace.component.CustomButton
+            android:id="@+id/create_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:text="Create" />
+
+        <com.dicoding.mindspace.component.CustomIconButton
+            android:id="@+id/upload_image_btn"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="center"
+            android:layout_marginStart="10dp"
+            android:src="@drawable/baseline_image_24"
+            android:tint="@color/primary_disabled"
+            app:variant="tertiary" />
+
+        <com.dicoding.mindspace.component.CustomIconButton
+            android:id="@+id/take_photo_btn"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="center"
+            android:layout_marginStart="10dp"
+            android:src="@drawable/baseline_camera_alt_24"
+            android:tint="@color/primary_disabled"
+            app:variant="tertiary" />
+    </LinearLayout>
+
+    <com.google.android.material.progressindicator.LinearProgressIndicator
+        android:id="@+id/progressBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:indeterminate="true"
+        app:trackColor="@color/green_200"
+        app:indicatorColor="@color/primary_disabled"
+        android:visibility="gone"
+        android:layout_alignParentTop="true"/>
+</RelativeLayout>
